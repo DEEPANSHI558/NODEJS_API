@@ -1,10 +1,11 @@
 const express =require("express");
 const postController=require("../controllers/post");
 const router=express.Router();
+const postValidator=require("../validator/post")
 
 
 router.get("/",postController.getPosts);
-
+router.post("/post",postValidator.createPostValidator,postController.createPost);
 module.exports=router;
 
 // console.log("process",process);
